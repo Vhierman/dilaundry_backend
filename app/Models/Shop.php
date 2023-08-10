@@ -9,6 +9,11 @@ class Shop extends Model
 {
     use HasFactory;
 
+    public function laundries()
+    {
+        return $this->hasMany(Laundry::class);
+    }
+
     protected $fillable = [
         'image',
         'name',
