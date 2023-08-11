@@ -37,4 +37,7 @@ Route::middleware('auth:sanctum')->group(function(){
     //Shop
     Route::get('/shop/recommendation/limit',[ShopController::class,'readRecommendationLimit']);
     Route::get('/shop/search/city/{name}',[ShopController::class,'searchByCity']);
+
+    //Laundry
+    Route::get('/laundry/user/{id}',[LaundryController::class,'whereUserId']);
 });

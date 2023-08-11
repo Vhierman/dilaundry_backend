@@ -18,4 +18,21 @@ class LaundryController extends Controller
             'data' => $laundries,
         ],200);
     }
+
+    function whereUserId($id)
+    {
+        $laundries = Laundry::where('user_id','=',$id)->with('shop','user')->orderBy('created_at','desc')->get();
+
+        if(count($laundries)>0){
+            return response()->json([
+                'data' => $laundries,
+            ],200);
+        }
+        else{
+            return response()->json([
+                'message' => 'not found',
+                'data' => $laundries,
+            ],404);
+        }  
+    }
 }
