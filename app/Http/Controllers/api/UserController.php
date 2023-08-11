@@ -16,4 +16,23 @@ class UserController extends Controller
             'data' => $users,
         ],200);
     }
+
+    function register(Request $request){
+        $this->validation($request,[
+            'username' => 'required|min:4|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = User::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return response()->json([
+            'data' => $user,
+        ],201);
+    }
+
 }
