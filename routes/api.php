@@ -40,4 +40,5 @@ Route::middleware('auth:sanctum')->group(function(){
 
     //Laundry
     Route::get('/laundry/user/{id}',[LaundryController::class,'whereUserId']);
+    Route::post('/laundry/claim',[LaundryController::class,'claim']);
 });
