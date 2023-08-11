@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -17,8 +19,9 @@ class UserController extends Controller
         ],200);
     }
 
-    function register(Request $request){
-        $this->validation($request,[
+    function register(Request $request)
+    {
+        $this->validate($request,[
             'username' => 'required|min:4|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
@@ -52,5 +55,4 @@ class UserController extends Controller
             'token' => $token,
         ],200);
     }
-
 }
