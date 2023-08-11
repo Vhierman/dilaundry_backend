@@ -28,3 +28,4 @@ Route::get('/laundry',[LaundryController::class,'readAll']);
 Route::get('/user',[UserController::class,'readAll']);   
 
 Route::post('/register',[UserController::class,'register']);     
+Route::post('/login',[UserController::class,'login']);     
