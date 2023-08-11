@@ -16,4 +16,21 @@ class ShopController extends Controller
             'data' => $shops,
         ],200);
     }
+
+    function readRecommendationLimit()
+    {
+        $shops = Shop::orderBy('rate','desc')->limit(5)->get();
+
+        if(count($promos)>0){
+            return response()->json([
+                'data' => $shops,
+            ],200);
+        }
+        else{
+            return response()->json([
+                'message' => 'not found',
+                'data' => $shops,
+            ],404);
+        }  
+    }
 }

@@ -32,8 +32,6 @@ class PromoController extends Controller
                 'message' => 'not found',
                 'data' => $promos,
             ],404);
-        }
-
-        
+        }  
     }
 }
